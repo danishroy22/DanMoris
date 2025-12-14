@@ -64,7 +64,7 @@ const Home = () => {
       <section className="hero">
         <div className="hero-overlay"></div>
         <div className="hero-content">
-          <h1 className="hero-title">Welcome to Dan Moris</h1>
+          <h1 className="hero-title">Welcome to All in Moris</h1>
           <p className="hero-subtitle">
             Your one-stop platform for planning, research, and resource-finding.
             Connect with trusted businesses and service providers.
@@ -177,7 +177,7 @@ const Home = () => {
         <div className="container">
           <div className="cta-content">
             <h2>Ready to Grow Your Business?</h2>
-            <p>Join thousands of businesses already on Dan Moris</p>
+            <p>Join thousands of businesses already on All in Moris</p>
             <Link to="/add-business" className="btn btn-primary cta-button">
               List Your Business Today
             </Link>

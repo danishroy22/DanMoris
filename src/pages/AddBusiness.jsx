@@ -126,7 +126,7 @@ const AddBusiness = () => {
         <div className="page-header">
           <h1 className="page-title">Add Your Business</h1>
           <p className="page-subtitle">
-            Join Dan Moris and reach thousands of potential customers
+            Join All in Moris and reach thousands of potential customers
           </p>
         </div>
 

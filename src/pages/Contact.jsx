@@ -48,8 +48,8 @@ const Contact = () => {
                 <Mail size={24} />
               </div>
               <h3>Email</h3>
-              <p>info@danmoris.com</p>
-              <a href="mailto:info@danmoris.com">Send us an email</a>
+              <p>info@allinmoris.com</p>
+              <a href="mailto:info@allinmoris.com">Send us an email</a>
             </div>
 
             <div className="info-card">

@@ -1,4 +1,4 @@
-# Dan Moris - Planning & Resource Platform
+# All in Moris - Planning & Resource Platform
 
 A modern, responsive multi-purpose planning and resource platform built with React. Connect with contractors, retailers, wholesalers, distributors, and service providers all in one place.
 
@@ -36,7 +36,7 @@ A modern, responsive multi-purpose planning and resource platform built with Rea
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd DanMoris
+cd all-in-moris
 ```
 
 2. Install dependencies:
@@ -108,7 +108,7 @@ Notes and troubleshooting
 ## Project Structure
 
 ```
-DanMoris/
+AllInMoris/
 ├── src/
 │   ├── components/          # Reusable components
 │   │   ├── Navbar.jsx
@@ -274,7 +274,7 @@ This project is licensed under the MIT License.
 
 ## Support
 
-For support, email info@danmoris.com or visit our website.
+For support, email info@allinmoris.com or visit our website.
 
 ## Acknowledgments
 

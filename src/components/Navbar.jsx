@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <span className="logo-text">Dan Moris</span>
+          <span className="logo-text">All in Moris</span>
         </Link>
 
         <div className="navbar-search">

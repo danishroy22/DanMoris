@@ -6,7 +6,7 @@ const About = () => {
     <div className="about-page">
       <div className="container">
         <div className="page-header">
-          <h1 className="page-title">About Dan Moris</h1>
+              <h1 className="page-title">About All in Moris</h1>
           <p className="page-subtitle">
             Connecting businesses with customers, making planning and resource-finding easy
           </p>
@@ -45,7 +45,7 @@ const About = () => {
             <h2 className="section-title">Our Purpose</h2>
             <div className="purpose-content">
               <p>
-                Dan Moris was created to solve a fundamental problem: the difficulty of finding reliable
+             All in Moris was created to solve a fundamental problem: the difficulty of finding reliable
                 contractors, suppliers, service providers, and resources when you need them most. Whether
                 you're planning a personal project, managing a corporate event, or sourcing materials for
                 construction, we provide a single, trusted platform to connect you with verified businesses.
@@ -122,8 +122,8 @@ const About = () => {
           </section>
 
           <section className="cta-section">
-            <h2>Join the Dan Moris Community</h2>
-            <p>Whether you're a business looking to grow or a customer seeking quality services, we're here to help</p>
+            <h2>Join the All in Moris Community</h2>
+              <p>Whether you're a business looking to grow or a customer seeking quality services, we're here to help</p>
             <div className="cta-buttons">
               <a href="/add-business" className="btn btn-primary">List Your Business</a>
               <a href="/categories" className="btn btn-secondary">Browse Services</a>

@@ -66,7 +66,7 @@ const CorporateServices = () => {
 
         <div className="services-intro">
           <p>
-            Dan Moris provides specialized corporate services designed to streamline your business operations,
+            All in Moris provides specialized corporate services designed to streamline your business operations,
             reduce costs, and improve efficiency. Whether you're planning a major event, setting up a new office,
             or managing resources, we connect you with the right professionals.
           </p>
@@ -109,7 +109,7 @@ const CorporateServices = () => {
         </div>
 
         <div className="benefits-section">
-          <h2 className="section-title">Why Choose Dan Moris for Corporate Services?</h2>
+          <h2 className="section-title">Why Choose All in Moris for Corporate Services?</h2>
           <div className="benefits-grid">
             <div className="benefit-item">
               <h3>Verified Network</h3>

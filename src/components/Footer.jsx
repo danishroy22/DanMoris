@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-logo">Dan Moris</h3>
+            <h3 className="footer-logo">All in Moris</h3>
             <p className="footer-description">
               Your one-stop platform for planning, research, and resource-finding.
               Connecting businesses with customers seamlessly.
@@ -39,7 +39,7 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <Mail size={18} />
-                <span>info@danmoris.com</span>
+                <span>info@allinmoris.com</span>
               </li>
               <li>
                 <Phone size={18} />
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Dan Moris. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} All in Moris. All rights reserved.</p>
         </div>
       </div>
     </footer>
