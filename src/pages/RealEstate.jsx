@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Building2, MapPin, Bed, Bath, Square, ArrowRight } from 'lucide-react'
 import { getProperties } from '../services/realEstateService'
+import { MAURITIUS_LOCATIONS } from '../constants/locations'
 import './RealEstate.css'
 
 const RealEstate = () => {
@@ -42,7 +43,12 @@ const RealEstate = () => {
     <div className="property-card">
       <div className="property-image">
         {property.image ? (
-          <img src={property.image} alt={property.title} />
+          <img 
+            src={property.image} 
+            alt={property.title}
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <div className="property-image-placeholder">
             <Building2 size={48} />
@@ -124,10 +130,9 @@ const RealEstate = () => {
             className="filter-select"
           >
             <option value="">All Locations</option>
-            <option value="Lagos">Lagos</option>
-            <option value="Abuja">Abuja</option>
-            <option value="Port Harcourt">Port Harcourt</option>
-            <option value="Kano">Kano</option>
+            {MAURITIUS_LOCATIONS.filter(loc => loc !== 'Other').map(loc => (
+              <option key={loc} value={loc}>{loc}</option>
+            ))}
           </select>
           <input
             type="number"

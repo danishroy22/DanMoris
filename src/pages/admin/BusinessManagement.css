@@ -1,0 +1,316 @@
+.business-management {
+  min-height: 100vh;
+  padding: 2rem;
+  background: var(--bg-color, #f5f5f5);
+}
+
+.management-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color, #1a1a1a);
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #666);
+}
+
+.filters-section {
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-color, #f5f5f5);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color, #e5e5e5);
+}
+
+.search-box svg {
+  color: var(--text-secondary, #666);
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: var(--text-color, #1a1a1a);
+  outline: none;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-group svg {
+  color: var(--text-secondary, #666);
+}
+
+.filter-group select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color, #e5e5e5);
+  border-radius: 8px;
+  background: var(--card-bg, #ffffff);
+  color: var(--text-color, #1a1a1a);
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-group select:hover {
+  border-color: var(--primary-color, #2563eb);
+}
+
+.filter-group select:focus {
+  border-color: var(--primary-color, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.businesses-table {
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-header {
+  background: var(--bg-color, #f5f5f5);
+  border-bottom: 2px solid var(--border-color, #e5e5e5);
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 0.8fr 1fr 1.5fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  align-items: center;
+}
+
+.table-header .table-row {
+  font-weight: 600;
+  color: var(--text-secondary, #666);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table-body .table-row {
+  border-bottom: 1px solid var(--border-color, #e5e5e5);
+  transition: background 0.2s;
+}
+
+.table-body .table-row:hover {
+  background: var(--bg-color, #f5f5f5);
+}
+
+.table-body .table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  color: var(--text-color, #1a1a1a);
+}
+
+.business-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.business-name {
+  font-weight: 600;
+  color: var(--text-color, #1a1a1a);
+}
+
+.business-email {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.approved {
+  background: rgba(16, 185, 129, 0.1);
+  color: #6366f1;
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.btn-icon {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.btn-icon.view {
+  color: var(--primary-color, #2563eb);
+}
+
+.btn-icon.view:hover {
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.btn-icon.approve {
+  color: #6366f1;
+}
+
+.btn-icon.approve:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.btn-icon.reject {
+  color: #ef4444;
+}
+
+.btn-icon.reject:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.btn-icon.delete {
+  color: #ef4444;
+}
+
+.btn-icon.delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.btn-icon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.table-footer {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--text-secondary, #666);
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-secondary, #666);
+}
+
+.loading-state {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .table-row {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+  }
+  
+  .table-cell:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .business-management {
+    padding: 1rem;
+  }
+
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .table-header {
+    display: none;
+  }
+
+  .table-cell {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  .table-cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-secondary, #666);
+  }
+
+  .table-cell.actions {
+    justify-content: flex-end;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .business-management {
+  background: var(--bg-color, #1a1a1a);
+}
+
+[data-theme="dark"] .filters-section,
+[data-theme="dark"] .businesses-table {
+  background: var(--card-bg, #2a2a2a);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .search-box {
+  background: var(--bg-color, #1a1a1a);
+  border-color: var(--border-color, #333);
+}
+
+[data-theme="dark"] .table-header {
+  background: var(--bg-color, #1a1a1a);
+}
+
+[data-theme="dark"] .table-body .table-row:hover {
+  background: var(--bg-color, #1a1a1a);
+}
+

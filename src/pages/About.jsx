@@ -33,7 +33,7 @@ const About = () => {
                 </div>
                 <h2>Our Vision</h2>
                 <p>
-                  To become the leading multi-purpose planning and resource platform in Nigeria and beyond,
+                  To become the leading multi-purpose planning and resource platform in Mauritius and beyond,
                   empowering businesses of all sizes to grow and succeed by providing easy access to quality
                   services, materials, and professional connections.
                 </p>

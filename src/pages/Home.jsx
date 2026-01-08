@@ -1,13 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { Search, ArrowRight } from 'lucide-react'
 import BusinessCard from '../components/BusinessCard'
+import GoogleAds from '../components/GoogleAds'
+import CompanyPromotion from '../components/CompanyPromotion'
 import { getBusinesses } from '../services/businessService'
 import './Home.css'
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [featuredBusinesses, setFeaturedBusinesses] = useState([])
+  const [promotedBusinesses, setPromotedBusinesses] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -17,13 +20,27 @@ const Home = () => {
   const loadFeaturedBusinesses = async () => {
     try {
       const businesses = await getBusinesses({ sortBy: 'popular' })
+      // Limit to 6 for faster rendering
       setFeaturedBusinesses(businesses.slice(0, 6))
+      // Load promoted businesses (those marked as featured/promoted)
+      const promoted = businesses.filter(b => b.featured || b.promoted).slice(0, 6)
+      setPromotedBusinesses(promoted)
     } catch (error) {
       console.error('Error loading featured businesses:', error)
     } finally {
       setLoading(false)
     }
   }
+
+  // Memoize categories to prevent re-creation on every render
+  const categories = useMemo(() => [
+    { name: 'Contractors', icon: '🔨', link: '/categories?category=Contractors' },
+    { name: 'Materials', icon: '🏗️', link: '/categories?category=Materials' },
+    { name: 'Real Estate', icon: '🏠', link: '/real-estate' },
+    { name: 'Services', icon: '⚙️', link: '/categories?category=Services' },
+    { name: 'Events', icon: '🎉', link: '/categories?category=Events' },
+    { name: 'Leisure and Activities', icon: '🏖️', link: '/leisure-activities' },
+  ], [])
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -38,6 +55,7 @@ const Home = () => {
     { name: 'Real Estate', icon: '🏠', link: '/real-estate' },
     { name: 'Services', icon: '⚙️', link: '/categories?category=Services' },
     { name: 'Events', icon: '🎉', link: '/categories?category=Events' },
+    { name: 'Leisure and Activities', icon: '🏖️', link: '/leisure-activities' },
   ]
 
   const steps = [
@@ -99,6 +117,13 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Google Ads Container */}
+      <section className="section">
+        <div className="container">
+          <GoogleAds adSlot="1234567890" />
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="section">
         <div className="container">
@@ -140,6 +165,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Company Promotion (Paid) */}
+      {promotedBusinesses.length > 0 && (
+        <CompanyPromotion businesses={promotedBusinesses} />
+      )}
 
       {/* Featured Companies */}
       <section className="section featured-section">

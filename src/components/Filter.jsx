@@ -92,10 +92,10 @@ const Filter = ({ onFilterChange, categories = [], locations = [] }) => {
                 onChange={(e) => handleFilterChange('priceRange', e.target.value)}
               >
                 <option value="">Any Price</option>
-                <option value="low">Low (Under ₦50,000)</option>
-                <option value="medium">Medium (₦50,000 - ₦200,000)</option>
-                <option value="high">High (₦200,000 - ₦500,000)</option>
-                <option value="premium">Premium (Above ₦500,000)</option>
+                <option value="low">Low (Under ₨ 50,000)</option>
+                <option value="medium">Medium (₨ 50,000 - ₨ 200,000)</option>
+                <option value="high">High (₨ 200,000 - ₨ 500,000)</option>
+                <option value="premium">Premium (Above ₨ 500,000)</option>
               </select>
             </div>
 

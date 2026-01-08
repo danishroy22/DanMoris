@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import BusinessCard from '../components/BusinessCard'
 import Filter from '../components/Filter'
 import { getBusinesses, searchBusinesses } from '../services/businessService'
+import { MAURITIUS_LOCATIONS } from '../constants/locations'
+import { BUSINESS_CATEGORIES } from '../constants/categories'
 import './Categories.css'
 
 const Categories = () => {
@@ -39,12 +41,13 @@ const Categories = () => {
     }
   }
 
-  const handleFilterChange = (newFilters) => {
+  const handleFilterChange = useCallback((newFilters) => {
     setFilters(newFilters)
-  }
+  }, [])
 
-  const categories = ['Contractors', 'Materials', 'Services', 'Events', 'Real Estate', 'Retailers', 'Wholesalers', 'Distributors']
-  const locations = ['Lagos', 'Abuja', 'Port Harcourt', 'Kano', 'Ibadan', 'Enugu', 'Kaduna']
+  // Memoize constants to prevent re-creation
+  const categories = useMemo(() => BUSINESS_CATEGORIES, [])
+  const locations = useMemo(() => MAURITIUS_LOCATIONS, [])
 
   return (
     <div className="categories-page">

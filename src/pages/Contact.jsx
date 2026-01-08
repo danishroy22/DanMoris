@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { submitContactForm } from '../services/contactService'
 import './Contact.css'
 
 const Contact = () => {
@@ -22,13 +23,17 @@ const Contact = () => {
     e.preventDefault()
     setLoading(true)
     
-    // TODO: Implement form submission to backend
-    setTimeout(() => {
+    try {
+      await submitContactForm(formData)
       setSubmitted(true)
-      setLoading(false)
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
       setTimeout(() => setSubmitted(false), 5000)
-    }, 1000)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('Failed to submit form. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -57,8 +62,8 @@ const Contact = () => {
                 <Phone size={24} />
               </div>
               <h3>Phone</h3>
-              <p>+234 (0) 123 456 7890</p>
-              <a href="tel:+2341234567890">Call us</a>
+              <p>+230 123 4567</p>
+              <a href="tel:+2301234567">Call us</a>
             </div>
 
             <div className="info-card">
@@ -66,7 +71,7 @@ const Contact = () => {
                 <MapPin size={24} />
               </div>
               <h3>Location</h3>
-              <p>Lagos, Nigeria</p>
+              <p>Port Louis, Mauritius</p>
               <a href="#" target="_blank" rel="noopener noreferrer">View on map</a>
             </div>
           </div>
@@ -112,7 +117,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+234 123 456 7890"
+                    placeholder="+230 123 4567"
                   />
                 </div>
                 <div className="form-group">
@@ -158,25 +163,29 @@ const Contact = () => {
 
         <div className="map-container">
           <h2 className="section-title">Find Us</h2>
-          <div className="map-placeholder">
-            <MapPin size={48} />
-            <p>Google Map Integration</p>
+          <div className="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.1234567890!2d57.5522!3d-20.1619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA5JzQyLjgiUyA1N8KwMzMnMDcuOSJF!5e0!3m2!1sen!2smu!4v1234567890123!5m2!1sen!2smu"
+              width="100%"
+              height="450"
+              style={{ border: 0, borderRadius: '12px' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="All in Moris Location - Port Louis, Mauritius"
+            />
             <p className="map-note">
-              To integrate Google Maps, add your API key and uncomment the map component in Contact.jsx
+              📍 Port Louis, Mauritius | 
+              <a 
+                href="https://www.google.com/maps/place/Port+Louis,+Mauritius" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ marginLeft: '0.5rem', color: 'var(--primary-color)' }}
+              >
+                View on Google Maps
+              </a>
             </p>
           </div>
-          {/* 
-          Uncomment and configure when you have Google Maps API key:
-          <iframe
-            src="https://www.google.com/maps/embed?pb=YOUR_EMBED_URL"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-          */}
         </div>
       </div>
     </div>

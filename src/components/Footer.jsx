@@ -43,11 +43,11 @@ const Footer = () => {
               </li>
               <li>
                 <Phone size={18} />
-                <span>+234 (0) 123 456 7890</span>
+                <span>+230 123 4567</span>
               </li>
               <li>
                 <MapPin size={18} />
-                <span>Lagos, Nigeria</span>
+                <span>Port Louis, Mauritius</span>
               </li>
             </ul>
           </div>

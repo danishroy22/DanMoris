@@ -1,0 +1,14 @@
+.admin-layout {
+  min-height: 100vh;
+  background: var(--bg-color, #f5f5f5);
+}
+
+.admin-content {
+  width: 100%;
+}
+
+/* Dark mode */
+[data-theme="dark"] .admin-layout {
+  background: var(--bg-color, #1a1a1a);
+}
+

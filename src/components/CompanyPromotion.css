@@ -1,0 +1,97 @@
+.company-promotion-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  border-top: 3px solid var(--primary-color, #2563eb);
+  border-bottom: 3px solid var(--primary-color, #2563eb);
+  margin: 3rem 0;
+}
+
+.promotion-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.promotion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
+  color: white;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.promotion-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #1f2937);
+  margin-bottom: 0.5rem;
+}
+
+.promotion-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #6b7280);
+}
+
+.promotion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.promotion-card-wrapper {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.promotion-card-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.promotion-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.75rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+  z-index: 10;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .promotion-title {
+    font-size: 2rem;
+  }
+  
+  .promotion-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .company-promotion-section {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+}
+
+[data-theme="dark"] .promotion-title {
+  color: var(--text-primary, #f9fafb);
+}
+

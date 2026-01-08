@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Upload, X } from 'lucide-react'
 import { addBusiness } from '../services/businessService'
+import { MAURITIUS_LOCATIONS } from '../constants/locations'
+import { BUSINESS_CATEGORIES } from '../constants/categories'
 import './AddBusiness.css'
 
 const AddBusiness = () => {
@@ -14,35 +16,18 @@ const AddBusiness = () => {
     phone: '',
     location: '',
     website: '',
+    brn: '', // Business Registration Number
     services: []
   })
+  const [brnError, setBrnError] = useState('')
   const [serviceInput, setServiceInput] = useState('')
   const [portfolioImages, setPortfolioImages] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
 
-  const categories = [
-    'Contractors',
-    'Materials',
-    'Services',
-    'Events',
-    'Real Estate',
-    'Retailers',
-    'Wholesalers',
-    'Distributors'
-  ]
-
-  const locations = [
-    'Lagos',
-    'Abuja',
-    'Port Harcourt',
-    'Kano',
-    'Ibadan',
-    'Enugu',
-    'Kaduna',
-    'Other'
-  ]
+  const categories = BUSINESS_CATEGORIES
+  const locations = MAURITIUS_LOCATIONS
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -76,15 +61,42 @@ const AddBusiness = () => {
     setPortfolioImages(portfolioImages.filter((_, i) => i !== index))
   }
 
+  // Validate BRN format (Mauritius BRN format: C1234567890123 or similar)
+  const validateBRN = (brn) => {
+    // Mauritius BRN typically: 1 letter followed by 13 digits, or similar format
+    // Adjust regex based on actual Mauritius BRN format
+    const brnRegex = /^[A-Z][0-9]{13}$/i
+    return brnRegex.test(brn.trim())
+  }
+
+  const handleBRNChange = (e) => {
+    const value = e.target.value
+    setFormData({ ...formData, brn: value })
+    
+    if (value && !validateBRN(value)) {
+      setBrnError('Invalid BRN format. Expected format: C1234567890123')
+    } else {
+      setBrnError('')
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setBrnError('')
     setLoading(true)
 
     try {
       // Validate required fields
-      if (!formData.name || !formData.category || !formData.description || !formData.email || !formData.phone || !formData.location) {
+      if (!formData.name || !formData.category || !formData.description || !formData.email || !formData.phone || !formData.location || !formData.brn) {
         throw new Error('Please fill in all required fields')
+      }
+
+      // Validate BRN format
+      if (!validateBRN(formData.brn)) {
+        setBrnError('Invalid BRN format. Expected format: C1234567890123')
+        setLoading(false)
+        return
       }
 
       const businessData = {
@@ -202,7 +214,7 @@ const AddBusiness = () => {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  placeholder="+234 123 456 7890"
+                  placeholder="+230 123 4567"
                 />
               </div>
 
@@ -232,6 +244,23 @@ const AddBusiness = () => {
                   onChange={handleChange}
                   placeholder="https://www.example.com"
                 />
+              </div>
+
+              <div className="form-group">
+                <label>Business Registration Number (BRN) *</label>
+                <input
+                  type="text"
+                  name="brn"
+                  required
+                  value={formData.brn}
+                  onChange={handleBRNChange}
+                  placeholder="C1234567890123"
+                  maxLength="14"
+                />
+                {brnError && <div className="error-message" style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>{brnError}</div>}
+                <small style={{ marginTop: '0.25rem', display: 'block', color: 'var(--text-secondary, #666)', fontSize: '0.85rem' }}>
+                  Format: 1 letter followed by 13 digits (e.g., C1234567890123)
+                </small>
               </div>
             </div>
           </div>
@@ -295,7 +324,12 @@ const AddBusiness = () => {
               <div className="portfolio-preview">
                 {portfolioImages.map((image, index) => (
                   <div key={index} className="portfolio-item">
-                    <img src={image} alt={`Portfolio ${index + 1}`} />
+                    <img 
+                      src={image} 
+                      alt={`Portfolio ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                     {index === 0 && <span className="main-image-badge">Main</span>}
                     <button
                       type="button"

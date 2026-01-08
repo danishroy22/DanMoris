@@ -137,7 +137,12 @@ const BusinessListing = () => {
 
         {business.image && (
           <div className="business-hero-image">
-            <img src={business.image} alt={business.name} />
+            <img 
+              src={business.image} 
+              alt={business.name}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         )}
 
@@ -168,7 +173,12 @@ const BusinessListing = () => {
                 <div className="portfolio-grid">
                   {business.portfolio.map((image, index) => (
                     <div key={index} className="portfolio-item">
-                      <img src={image} alt={`Portfolio ${index + 1}`} />
+                      <img 
+                        src={image} 
+                        alt={`Portfolio ${index + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                   ))}
                 </div>

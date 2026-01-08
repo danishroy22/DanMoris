@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Star, Phone, Mail } from 'lucide-react'
 import './BusinessCard.css'
 
-const BusinessCard = ({ business }) => {
+const BusinessCard = memo(({ business }) => {
   const renderStars = (rating) => {
     const stars = []
     const fullStars = Math.floor(rating)
@@ -24,7 +25,13 @@ const BusinessCard = ({ business }) => {
     <Link to={`/business/${business.id}`} className="business-card">
       <div className="card-image-container">
         {business.image ? (
-          <img src={business.image} alt={business.name} className="card-image" />
+          <img 
+            src={business.image} 
+            alt={business.name} 
+            className="card-image"
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <div className="card-image-placeholder">
             <span>{business.name?.charAt(0).toUpperCase()}</span>
@@ -74,7 +81,9 @@ const BusinessCard = ({ business }) => {
       </div>
     </Link>
   )
-}
+})
+
+BusinessCard.displayName = 'BusinessCard'
 
 export default BusinessCard
 

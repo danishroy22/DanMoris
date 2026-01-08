@@ -1,0 +1,235 @@
+.contact-submissions {
+  min-height: 100vh;
+  padding: 2rem;
+  background: var(--bg-color, #f5f5f5);
+}
+
+.submissions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color, #1a1a1a);
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary, #666);
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color, #e5e5e5);
+}
+
+.filter-tab {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary, #666);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: -2px;
+}
+
+.filter-tab:hover {
+  color: var(--primary-color, #2563eb);
+}
+
+.filter-tab.active {
+  color: var(--primary-color, #2563eb);
+  border-bottom-color: var(--primary-color, #2563eb);
+}
+
+.submissions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.submission-card {
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--border-color, #e5e5e5);
+  transition: all 0.2s;
+}
+
+.submission-card.new {
+  border-left-color: var(--primary-color, #2563eb);
+  background: rgba(37, 99, 235, 0.02);
+}
+
+.submission-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.submission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.submission-meta h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color, #1a1a1a);
+  margin-bottom: 0.5rem;
+}
+
+.submission-contact {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  flex-wrap: wrap;
+}
+
+.submission-contact svg {
+  color: var(--text-secondary, #666);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.new {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color, #2563eb);
+}
+
+.status-badge.read {
+  background: rgba(107, 114, 128, 0.1);
+  color: var(--text-secondary, #666);
+}
+
+.submission-body {
+  margin-bottom: 1rem;
+}
+
+.submission-subject {
+  font-size: 1rem;
+  color: var(--text-color, #1a1a1a);
+  margin-bottom: 0.75rem;
+}
+
+.submission-message {
+  color: var(--text-color, #1a1a1a);
+}
+
+.submission-message p {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #666);
+}
+
+.submission-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color, #e5e5e5);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.submission-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--card-bg, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state svg {
+  color: var(--text-secondary, #666);
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color, #1a1a1a);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--text-secondary, #666);
+}
+
+.loading-state {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-submissions {
+    padding: 1rem;
+  }
+
+  .submission-header {
+    flex-direction: column;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .contact-submissions {
+  background: var(--bg-color, #1a1a1a);
+}
+
+[data-theme="dark"] .submission-card,
+[data-theme="dark"] .empty-state {
+  background: var(--card-bg, #2a2a2a);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .submission-card.new {
+  background: rgba(37, 99, 235, 0.1);
+}
+
+[data-theme="dark"] .filter-tabs {
+  border-bottom-color: var(--border-color, #333);
+}
+
